@@ -12,6 +12,6 @@ public interface MovieService {
 
     public Movie update(Movie movie);
 
-    public void deleteMovie(Integer movieId);
+    public Movie deleteMovie(Integer movieId);
 }
 

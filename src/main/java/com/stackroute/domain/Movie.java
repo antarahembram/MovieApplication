@@ -1,16 +1,17 @@
 package com.stackroute.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
 public class Movie {
 
+
+
     @Id
-    private Integer movieId;
+    @Column(name = "moveId")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int movieId=0;
     private String genere;
     private String movieTitle;
     private String language;
@@ -21,8 +22,8 @@ public class Movie {
     public Movie() {
     }
 
-    public Movie(int movieId, String genere, String movieTitle, String language, String status, long voteCount, BigDecimal budget) {
-        this.movieId = movieId;
+    public Movie( String genere, String movieTitle, String language, String status, long voteCount, BigDecimal budget) {
+       // this.movieId = movieId;
         this.genere = genere;
         this.movieTitle = movieTitle;
         this.language = language;
@@ -30,6 +31,16 @@ public class Movie {
         this.voteCount = voteCount;
         this.budget = budget;
     }
+
+//    public Movie( Integer movieId,String genere, String movieTitle, String language, String status, long voteCount, BigDecimal budget) {
+//         this.movieId = movieId;
+//        this.genere = genere;
+//        this.movieTitle = movieTitle;
+//        this.language = language;
+//        this.status = status;
+//        this.voteCount = voteCount;
+//        this.budget = budget;
+//    }
 
     public int getMovieId() {
         return movieId;
@@ -70,6 +81,10 @@ public class Movie {
                 ", voteCount=" + voteCount +
                 ", budget=" + budget +
                 '}';
+    }
+
+    public void setMovieId(int movieId) {
+        this.movieId = movieId;
     }
 
     public void setGenere(String genere) {
